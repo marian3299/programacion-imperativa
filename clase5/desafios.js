@@ -120,3 +120,87 @@ let tipoPan = prompt('Quiere queso? '); */
 
 let sandwich = localSandwiches(sandwichBase, tipoPan, true, false, true, false, true);
 console.log(sandwich);
+
+
+
+/* Creá una función que reciba un parámetro numérico y verifique si el mismo es el
+número secreto. El número secreto deberá ser seleccionado de manera random de
+entre 1 y 10 —investigá qué hace la función Math.random()—. En caso de ser correcto,
+retorna un mensaje felicitando al usuario y, en caso de que no acierte, retorna un
+menaje de aliento junto con el número ingresado y el secreto. */
+
+const numeroSecreto = (numeroSecreto) => {
+    let numeroAleatorio = Math.random();
+    numeroAleatorio = Math.floor((numeroAleatorio*10) + 1);
+
+    let verfificacion = numeroSecreto === numeroAleatorio ? 'Felicidades, los numeros son iguales' : `Los numeros no son iguales. Su numero fue ${numeroSecreto} y el numero secreto es ${numeroAleatorio}`;
+    return verfificacion
+}
+
+let numero = parseInt(prompt('Ingrese un numero: '));
+let verificarNumero = numeroSecreto(numero);
+console.log(verificarNumero);
+
+
+
+
+/* Crea una función llamada abrirParacaidas() que recibe dos parámetros: velocidad y
+altura. La función deberá decirnos si el paracaídas debe abrirse teniendo en cuenta lo
+siguiente:
+● La velocidad debe ser menor a 1000 km/h.
+● La altura debe ser mayor o igual a 2000 m y menor a 3000 m. */
+
+const abrirParacaidas = (velocidad, altura) => {
+    if (velocidad < 1000 && (altura>=2000 && altura<3000)){
+        return 'Abrir paracaidas';
+    }
+
+    return 'No abrir paracaidas'
+}
+
+let velocidad = parseInt(prompt('Ingrese la velocidad en km/h: '));
+let altura = parseInt(prompt('Ingrese la altura en metros: '));
+let abrir = abrirParacaidas(velocidad,altura);
+console.log(abrir);
+
+
+
+
+/* Usando la estructura switch, crea un programa en el que si un usuario ingresa "casa",
+"perro", "pelota", "árbol" o "genio", nos devuelva la misma palabra traducida al idioma
+inglés.
+En caso de que la palabra sea distinta a la esperada, mostrarle un mensaje que le
+informe que la palabra ingresada es incorrecta. */
+
+let palabra = prompt('Ingrese una palabra: ')
+
+switch(palabra){
+    case 'casa':
+        palabra = 'house';
+        console.log(palabra);
+        break;
+
+    case 'perro':
+        palabra = 'dog';
+        console.log(palabra);
+        break;
+
+    case 'pelota':
+        palabra = 'ball';
+        console.log(palabra);
+        break;
+
+    case 'arbol':
+        palabra = 'tree';
+        console.log(palabra);
+        break;
+
+    case 'genio':
+        palabra = 'genius';
+        console.log(palabra);
+        break;
+
+    default:
+        console.log('La palabra ingresada es incorrecta')
+}
+
