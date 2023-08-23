@@ -68,3 +68,9 @@ const promediar = (arr) => {
 }
 
 console.log(promediar(notas));
+
+
+//Array dentro de array
+let variados = ['Nacho', 34, true, [34,28,37,40]];
+console.log(variados[3]); //Seleccionamos el array dentro del array variados
+console.log(variados[3][1]); //Acceder a un dato del array que esta dentro de nuestro array

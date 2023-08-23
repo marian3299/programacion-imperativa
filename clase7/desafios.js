@@ -107,3 +107,5 @@ const join = arr => {
 
 let letras = ['c','h','a','u'];
 console.log(join(letras));
+
+console.log('Mariana' + 'Ampudia')
