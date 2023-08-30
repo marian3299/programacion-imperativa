@@ -36,7 +36,7 @@ let numeros = [10, 5, 2, 1];
 
 const devolverMenor = (arr) => {
 
-    let menor = arr[0];
+    let menor = arr[0]; 
 
     for(let i = 1; i  < arr.length; i++){
         if(menor > arr[i]){
