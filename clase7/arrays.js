@@ -74,3 +74,41 @@ console.log(promediar(notas));
 let variados = ['Nacho', 34, true, [34,28,37,40]];
 console.log(variados[3]); //Seleccionamos el array dentro del array variados
 console.log(variados[3][1]); //Acceder a un dato del array que esta dentro de nuestro array
+
+
+//--------------STRINGS-----------------
+//Son objetos para JS
+//Podemos acceder al string como un array porque cada caracter ocupa una posicion y tiene un indice
+
+//length: nos da la longitud del string
+let mensaje = 'Gran dia para, practicar JS';
+console.log(mensaje.length);
+
+//indexOf(): nos muestra en que index esta una cadena de texto en nuestro string 
+console.log(mensaje.indexOf('djh'));
+
+//slice(): hace un recorte del string. (Inicio recorte, fin)
+//Puede recibir solo un valor. Recorta la cantidad de caracteres indicados iniciando desde index 0
+console.log(mensaje.slice(0,5));
+
+//trim(): elimina los espacios al inicio y final del string. 
+let mensaje2 = '     Gran dia para practicar JS  ';
+console.log(mensaje2.trim());
+
+//split(): separa el string y lo guarda en un array
+//Recibe por que queremos separa el string. En este caso por cada espacio
+console.log(mensaje.split(' '))
+
+//replace(): reemplaza un pedazo del string con lo que ingresemos
+//No altera la cadena de texto original
+console.log(mensaje.replace('JS', 'Python'));
+
+function menciona (texto,palabra){
+    if(texto.indexOf(palabra) != -1){
+        return true;
+    }else{
+        return false;
+    }
+}
+
+console.log(menciona('Mariana es la mejor', 'mejor'));
