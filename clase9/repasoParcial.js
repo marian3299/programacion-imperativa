@@ -5,7 +5,7 @@
 // En cambio, si el número es impar y el booleano es false retornar “No ha pasado
 // la condición”.
 // Para cualquienumber%2 === 0 && bool === true otro caso, retornar -1
-const verificar = (number, bool) => {
+/* const verificar = (number, bool) => {
     if(number%2 === 0 && bool === true){
         return 'Ha pasado la condición'
     }else if(number%2 !== 0 && bool === false){
@@ -91,4 +91,43 @@ let concurso = {
     etapas: [],
     ganador: ''
 
+} */
+
+
+const tipoDato = (valor1, valor2) => {
+    if(typeof(valor1) === 'number' && typeof(valor2) === 'number'){
+        return valor1*valor2;
+    }else if(typeof(valor1) === 'string' && typeof(valor2) === 'string'){
+        return valor1 + ' ' + valor2;
+    }else if((typeof(valor1) === 'boolean' && typeof(valor2) === 'boolean')){
+        return false;
+    }
 }
+
+let dataType = tipoDato(true, true);
+console.log(dataType);
+
+
+
+
+let object = {
+    nombre: 'Mariana',
+    apellido: 'Ampudia',
+    edad: 15,
+    esArgentino: false
+}
+
+const edad = obj => {
+    if(object.edad >= 18 && object.esArgentino === true){
+        return `${object.nombre} ${object.apellido} vive en Argentina y es mayor de edad`
+    }else if(object.edad >= 18 && object.esArgentino === false){
+        return `${object.nombre} ${object.apellido} NO vive en Argentina y es mayor de edad`
+    }else if(object.edad < 18 && object.esArgentino === true){
+        return `${object.nombre} ${object.apellido}  vive en Argentina y NO es mayor de edad`
+    }else{
+        return `${object.nombre} ${object.apellido}  NO vive en Argentina y NO es mayor de edad`
+    }
+}
+
+let age = edad(object);
+console.log(age);

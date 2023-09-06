@@ -1,0 +1,82 @@
+/* Ejerecicio 1*/
+const restarPares = (valor1,valor2) => {
+    return valor1%2 === 0 && valor2%2 === 0 ?  valor1 - valor2 : 'Lo siento, uno o mas parametros no son pares';
+}
+
+let resultado1 = restarPares(7,6);
+console.log(resultado1);
+
+
+/* Ejerecicio 2*/
+const accesoAlRecital = (edad,ticket) => {
+    if(!ticket){
+        return false;
+    }
+
+    if(ticket && edad >= 18){
+        return true;
+    }else if(edad < 18){
+        return 'Sólo puedes acceder con un adulto acompañante';
+    }
+}
+
+let resultado2 = accesoAlRecital(20,true);
+console.log(resultado2);
+
+
+
+/* Ejerecicio 3*/
+let productos = [
+    {
+        producto : "remera",
+        tipo: "indumentaria",
+        precio: 2100
+    },
+    {
+        producto : "notebook",
+        tipo: "tecnologia",
+        precio: 200000
+    },
+    {
+        producto : "celular",
+        tipo: "tecnologia",
+        precio: 27000
+    },
+    {
+        producto : "protector solar",
+        tipo: "cosmetica",
+        precio: 2500
+    },
+    {
+        producto : "pantalon",
+        tipo: "indumentaria",
+        precio: 7500
+    },
+    {
+        producto : "tablet",
+        tipo: "tecnologia",
+        precio: 60000
+    },
+   
+]
+
+
+
+const filtrarProductos = arr =>{
+    
+    let prodcutosFiltrados = [];
+
+    for(let i=0; i<arr.length; i++){
+        let tipo = arr[i].tipo;
+        let precio = arr[i].precio;
+
+        if( tipo === 'tecnologia' &&  precio >= 50000){
+            prodcutosFiltrados.push(arr[i]);
+        }
+    }
+
+    return prodcutosFiltrados;
+}
+
+let resultado3 = filtrarProductos(productos);
+console.log(resultado3);
