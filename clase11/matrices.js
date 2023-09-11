@@ -10,10 +10,14 @@ let matriz = [
     [9, 2, 4]  //fila 2
 ]
 
+
+
 //ACCEDER A VALORES 
 //matriz[fila][columna]
 console.log(matriz[0][1]); //fila 0, columna 1
 console.log(matriz[2][1]); //fila 2, columna 1
+
+
 
 
 //RECORRER FILAS 
@@ -36,6 +40,7 @@ const recorrerFila = (fila,mat) => {
 let sum = recorrerFila(1,matriz);
 console.log(sum);
 console.table(matriz);
+
 
 
 
@@ -76,3 +81,158 @@ const recorrerColumnas2 = mat => {
 
 let suma = recorrerColumnas2(matrix);
 console.table(suma);
+
+
+
+
+//RECORRER DIAGONAL PRINCIPAL
+let matriz3 = [
+    [2, 4, 6], //fila 0
+    [1, 7, 2], //fila 1
+    [9, 2, 4]  //fila 2
+]
+
+//matriz[0][0]
+//matriz[1][1]
+//matriz[2][2]
+
+const recorrerPrincipal = mat => {
+    for(let i=0; i < mat.length; i++){
+        console.log(mat[i][i]);
+    }
+}
+
+recorrerPrincipal(matriz3);
+
+
+
+
+//RECORRER DIAGONAL SECUNDARIA 
+//matriz[0][2]
+//matriz[1][1]
+//matriz[2][0]
+
+const recorrerSecundaria = mat => {
+    for(let i=0; i<mat.length; i++){
+        console.log(mat[i][mat.length - 1 - i]);
+    }
+}
+
+recorrerSecundaria(matriz3);
+
+
+
+
+//RECORRER MATRIZ COMPLETA
+//Lo hacemos recorriendo todas las filas 
+console.log('---------------------------------------')
+const recorrerMatriz = mat => {
+    for(let fila=0; fila<mat.length; fila++){ //El primer ciclo for recorre las filas 
+        for(let col=0; col<mat[fila].length; col++){ //Recorre las columnas despues de ingresar a una fila. Se repite de acuerdo de la longitud de la fila en la que estamos
+            console.log('Estoy recorriendo la fila ' + fila + ' en la columna ' + col);
+            console.log(mat[fila][col]);
+        }
+    }
+}
+
+recorrerMatriz(matriz3);
+
+
+
+
+//EJERECICIO
+//Empezamos a contar los dias desde el Lunes
+//El mes de febrero tiene 28 dias
+let gastos = [
+    [1135, 2500, 900, 1600, 2800, 3650, 1100], //Semana 1
+    [1750, 1890, 1900, 1300, 898, 1750, 2800], //Semana 2
+    [1700, 1150, 1690, 1900, 1770, 4500, 2560],//Semana 3
+    [800, 1250, 1430, 2100, 1980, 1270, 950]   //Semana 5
+]
+
+//Creando una funcion reutilizable calcular el gato totoal de la tercer semana 
+const gastoSemanal = (mat, semana) => {
+    let fila = semana - 1;
+    let gastoTotal = 0;
+
+    for(let i=0; i < mat[fila].length; i++){
+        gastoTotal += mat[fila][i];
+    }
+
+    return gastoTotal;
+}
+
+let totalSemanaTres = gastoSemanal(gastos,3);
+console.log(totalSemanaTres);
+
+
+
+//Creando una funcion reutilizable
+//Queremos saber el total de lo que se gasto sumando todos los dias sabado
+const gastoPorDia = (mat, dia) =>{
+    let col = dia-1;
+    let gastoTotal = 0;
+
+    for(let i=0; i<mat.length; i++){ 
+        if(mat[i][col] !== undefined){ 
+            gastoTotal += mat[i][col];
+        }
+    }
+
+    return gastoTotal;
+
+}
+
+let gastoSabados = gastoPorDia(gastos, 6);
+console.log(gastoSabados);
+
+
+
+
+//Calcular el total gastado del mes 
+const gastoMes = mat =>{
+    let gastoTotal = 0;
+    for(let fila=0; fila<mat.length; fila++){ //El primer ciclo for recorre las filas 
+        for(let col=0; col<mat[fila].length; col++){ //Recorre las columnas despues de ingresar a una fila. Se repite de acuerdo de la longitud de la fila en la que estamos
+            
+            gastoTotal += mat[fila][col];
+        }
+    }
+
+    return gastoTotal;
+}
+
+let gastoMesTotal = gastoMes(gastos);
+console.log(gastoMesTotal);
+
+
+
+
+//En el dia que mas se gasto, cuanto fue?
+//En que dia y semana se produjo ese gasto
+const mayorGasto = mat => {
+
+    let mayor = mat[0][0];
+    let dia = 0;
+    let semana = 0;
+
+    for(let fila=0; fila<mat.length; fila++){ 
+        for(let col=0; col<mat[fila].length; col++){ 
+            if(mayor < mat[fila][col]){
+                mayor = mat[fila][col];
+                dia = col;
+                semana = fila + 1;
+            }
+            
+        }
+    }
+
+    return {monto: mayor, dia: dia, semana:semana};
+
+}
+
+let diasSemana = ['lunes', 'martes', 'miercoles', 'jueves', 'viernes', 'sabado', 'domingo']
+
+let mayor = mayorGasto(gastos);
+console.log(mayor);
+console.log(`El dia que mas se gasto fue un total de ${mayor.monto} que se produjo en el dia ${diasSemana[mayor.dia]} de la semana ${mayor.semana}`);

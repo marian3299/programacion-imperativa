@@ -108,3 +108,98 @@ const valoresRepetidos = arr =>{
 }
 
 console.log(valoresRepetidos(numeros));
+
+
+
+/**
+ * Declara una variable que contenga una matriz
+ * de 5x5 llena de puros numeros enteros y positivos
+ * 
+ * Luego, escribe un algoritmo para sumar todos
+ * los numeros en la matriz.
+ */
+
+let matrix = [
+    [1,2,3,4,5],
+    [6,7,8,9,10],
+    [11,12,13,14,15],
+    [16,17,18,19,20],
+    [21,22,23,24,25],
+]
+
+const sumaMatriz = mat => {
+    let suma = 0;
+    for(let i=0; i<mat.length;i++){
+        for(let j=0; j<mat[i].length; j++){
+            suma += mat[i][j];
+        }
+    }
+
+    return suma;
+}
+
+console.log(sumaMatriz(matrix));
+
+
+
+
+/* Crear una función que genere una matriz de 10x10. Cada fila debe tener solo 10 números.*/
+const generarMatriz = () => {
+    let matriz = [
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+    ]
+
+    let num = 1;
+    for(let i=0; i<10;i++){
+        for(let j=0; j<10; j++){
+            matriz[i][j] = num;
+            num++;
+        }
+    }
+
+    return matriz;
+}
+
+let matriz = generarMatriz();
+console.table(matriz);
+
+
+
+
+//Sumar los valores de la diagonal principal y secundaria
+const diagonalPrincipal = mat => {
+    let suma = 0;
+    for(let i=0; i < mat.length; i++){
+        suma += mat[i][i];
+    }
+
+    return suma; 
+}
+
+const diagonalSecundaria = mat => {
+    let suma = 0;
+    for(let i=0; i<mat.length; i++){
+        suma += mat[i][mat.length - 1 - i];
+    }
+
+    return suma;
+}
+
+let sumaPrincipal = diagonalPrincipal(matriz);
+console.log(sumaPrincipal);
+let sumaSecundaria = diagonalSecundaria(matriz);
+console.log(sumaSecundaria);
+
+
+
+
+
